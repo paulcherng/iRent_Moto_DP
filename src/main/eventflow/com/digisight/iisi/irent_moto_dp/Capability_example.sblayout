@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="ValidatedDataIn">
+        <param name="gui:x" value="-110"/>
+        <param name="gui:y" value="-339"/>
+    </component>
+    <component name="configIn">
+        <param name="gui:x" value="-110"/>
+        <param name="gui:y" value="410"/>
+    </component>
+    <component name="Module">
+        <param name="gui:x" value="-110"/>
+        <param name="gui:y" value="164"/>
+    </component>
+    <component name="Module2">
+        <param name="gui:x" value="-110"/>
+        <param name="gui:y" value="283"/>
+    </component>
+    <component name="Module3">
+        <param name="gui:x" value="-110"/>
+        <param name="gui:y" value="45"/>
+    </component>
+    <component name="Module4">
+        <param name="gui:x" value="-110"/>
+        <param name="gui:y" value="-74"/>
+    </component>
+    <component name="QueryTable">
+        <param name="gui:x" value="-120"/>
+        <param name="gui:y" value="-213"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="80"/>
+        <param name="gui:y" value="-339"/>
+    </component>
+    <component name="Query">
+        <param name="gui:x" value="0"/>
+        <param name="gui:y" value="-339"/>
+    </component>
+    <component name="ProcessedDataOut">
+        <param name="gui:x" value="184"/>
+        <param name="gui:y" value="-339"/>
+    </component>
+    <component name="Group">
+        <param name="gui:x" value="-161"/>
+        <param name="gui:y" value="-119"/>
+        <param name="gui:width" value="160"/>
+        <param name="gui:height" value="486"/>
+    </component>
+    <gui.group name="Group" visual-state="open">
+        <member name="Module2"/>
+        <member name="Module"/>
+        <member name="Module3"/>
+        <member name="Module4"/>
+        <param name="gui:x" value="-161"/>
+        <param name="gui:y" value="-119"/>
+        <param name="gui:width" value="160"/>
+        <param name="gui:height" value="486"/>
+    </gui.group>
+</application-layout>

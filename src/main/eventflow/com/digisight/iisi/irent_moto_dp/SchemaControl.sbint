@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application version="10.4.3_a45545bc0fa864b6dd457e084eb653f6e2004e05">
+    <annotations>
+        <annotation name="hygienic"/>
+    </annotations>
+    <type-metadata>
+        <param name="type" value="interface"/>
+        <param name="fully-qualified-name" value="com.digisight.iisi.irent_moto_dp.SchemaControl"/>
+    </type-metadata>
+    <memory-model-settings/>
+    <named-schemas>
+        <schema name="processedData">
+            <field name="UUID" type="string"/>
+            <field name="SrcID" type="string"/>
+            <field name="SnsrType" type="string"/>
+            <field name="SnsrID" type="string"/>
+            <field name="CID" type="string"/>
+            <field name="OBDStatus" type="int"/>
+            <field name="GPSStatus" type="int"/>
+            <field name="GPRSStatus" type="int"/>
+            <field name="AccON" type="int"/>
+            <field name="PowON" type="int"/>
+            <field name="SPEED" type="double"/>
+            <field name="Milage" type="double"/>
+            <field name="Volt" type="double"/>
+            <field name="Lat" type="double"/>
+            <field name="Lng" type="double"/>
+            <field name="doorStatus" type="string"/>
+            <field name="lockStatus" type="string"/>
+            <field name="OrderStatus" type="int"/>
+            <field name="indoorLight" type="int"/>
+            <field name="SecurityStatus" type="int"/>
+            <field name="CentralLock" type="int"/>
+            <field name="GPSTime" type="string"/>
+            <field name="iButton" type="int"/>
+            <field name="iButtonKey" type="string"/>
+        </schema>
+        <schema name="validatedData">
+            <field name="UUID" type="string"/>
+            <field name="SrcID" type="string"/>
+            <field name="SnsrType" type="string"/>
+            <field name="SnsrID" type="string"/>
+            <field name="CID" type="string"/>
+            <field name="OBDStatus" type="int"/>
+            <field name="GPSStatus" type="int"/>
+            <field name="GPRSStatus" type="int"/>
+            <field name="AccON" type="int"/>
+            <field name="PowON" type="int"/>
+            <field name="SPEED" type="double"/>
+            <field name="Milage" type="double"/>
+            <field name="Volt" type="double"/>
+            <field name="Lat" type="double"/>
+            <field name="Lng" type="double"/>
+            <field name="doorStatus" type="string"/>
+            <field name="lockStatus" type="string"/>
+            <field name="OrderStatus" type="int"/>
+            <field name="indoorLight" type="int"/>
+            <field name="SecurityStatus" type="int"/>
+            <field name="CentralLock" type="int"/>
+            <field name="GPSTime" type="string"/>
+            <field name="iButton" type="int"/>
+            <field name="iButtonKey" type="string"/>
+        </schema>
+    </named-schemas>
+    <dynamic-variables/>
+</application>

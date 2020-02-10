@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="InputStream">
+        <param name="gui:x" value="-321"/>
+        <param name="gui:y" value="-16"/>
+    </component>
+    <component name="toElasticSearch">
+        <param name="gui:x" value="415"/>
+        <param name="gui:y" value="345"/>
+        <param name="gui:bends:1" value="346,285;368,375"/>
+    </component>
+    <component name="JDBCTable">
+        <param name="gui:x" value="405"/>
+        <param name="gui:y" value="19"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="JDBCTable2">
+        <param name="gui:x" value="-84"/>
+        <param name="gui:y" value="127"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="CSVWriter">
+        <param name="gui:x" value="551"/>
+        <param name="gui:y" value="265"/>
+        <param name="gui:bends:1" value="324,276;364,437;501,437;539,285"/>
+        <param name="gui:bends:2" value="487,241;503,305"/>
+    </component>
+    <component name="Filter">
+        <param name="gui:x" value="60"/>
+        <param name="gui:y" value="-6"/>
+    </component>
+    <component name="Java">
+        <param name="gui:x" value="60"/>
+        <param name="gui:y" value="242"/>
+    </component>
+    <component name="KafkaConsume">
+        <param name="gui:x" value="-74"/>
+        <param name="gui:y" value="242"/>
+    </component>
+    <component name="Map2">
+        <param name="gui:x" value="415"/>
+        <param name="gui:y" value="211"/>
+        <param name="gui:bends:1" value="341,268;347,241"/>
+    </component>
+    <component name="Map4">
+        <param name="gui:x" value="-171"/>
+        <param name="gui:y" value="242"/>
+    </component>
+    <component name="Map4Copy">
+        <param name="gui:x" value="209"/>
+        <param name="gui:y" value="-212"/>
+        <param name="gui:bends:1" value="135,14;183,-182"/>
+    </component>
+    <component name="Map5">
+        <param name="gui:x" value="209"/>
+        <param name="gui:y" value="113"/>
+        <param name="gui:bends:1" value="159,34;185,143"/>
+    </component>
+    <component name="Query">
+        <param name="gui:x" value="415"/>
+        <param name="gui:y" value="-114"/>
+        <param name="gui:bends:1" value="327,260;405,-84"/>
+    </component>
+    <component name="Query2">
+        <param name="gui:x" value="-74"/>
+        <param name="gui:y" value="-6"/>
+    </component>
+    <component name="Split">
+        <param name="gui:x" value="209"/>
+        <param name="gui:y" value="240"/>
+        <param name="gui:height" value="65"/>
+    </component>
+    <component name="Split2">
+        <param name="gui:x" value="-321"/>
+        <param name="gui:y" value="232"/>
+    </component>
+    <component name="Start">
+        <param name="gui:x" value="-430"/>
+        <param name="gui:y" value="232"/>
+    </component>
+    <component name="Union">
+        <param name="gui:x" value="-171"/>
+        <param name="gui:y" value="-6"/>
+        <param name="gui:bends:2" value="-251,252;-213,34"/>
+    </component>
+    <component name="DateFormatConfig">
+        <param name="gui:x" value="415"/>
+        <param name="gui:y" value="-212"/>
+    </component>
+    <component name="RootPathConfig">
+        <param name="gui:x" value="415"/>
+        <param name="gui:y" value="113"/>
+    </component>
+</application-layout>

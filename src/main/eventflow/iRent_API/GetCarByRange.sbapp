@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.4.3_a45545bc0fa864b6dd457e084eb653f6e2004e05">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="iRent_API.GetCarByRange"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <dynamic-variables/>
+        <data name="QueryTable" shared="false" source="input" type="querytable">
+            <param name="storage-method" value="heap"/>
+            <param name="replicated" value="false"/>
+            <table-schema>
+                <schema>
+                    <field name="UUID" type="string"/>
+                    <field name="SrcID" type="string"/>
+                    <field name="SnsrType" type="string"/>
+                    <field name="SnsrID" type="string"/>
+                    <field name="CID" type="string"/>
+                    <field name="OBDStatus" type="int"/>
+                    <field name="GPSStatus" type="int"/>
+                    <field name="GPRSStatus" type="int"/>
+                    <field name="AccON" type="int"/>
+                    <field name="PowON" type="int"/>
+                    <field name="SPEED" type="double"/>
+                    <field name="Milage" type="double"/>
+                    <field name="Volt" type="double"/>
+                    <field name="Lat" type="double"/>
+                    <field name="Lng" type="double"/>
+                    <field name="doorStatus" type="string"/>
+                    <field name="lockStatus" type="string"/>
+                    <field name="OrderStatus" type="int"/>
+                    <field name="indoorLight" type="int"/>
+                    <field name="SecurityStatus" type="int"/>
+                    <field name="CentralLock" type="int"/>
+                    <field name="GPSTime" type="string"/>
+                    <field name="iButton" type="int"/>
+                    <field name="iButtonKey" type="string"/>
+                </schema>
+                <primary-index type="btree">
+                    <field name="CID"/>
+                </primary-index>
+            </table-schema>
+            <param name="truncate" value="false"/>
+            <preload format="csv" mode="empty"/>
+        </data>
+        <stream name="InputStream">
+            <schema>
+                <field name="Lat" type="double"/>
+                <field name="Lng" type="double"/>
+                <field name="Range" type="int"/>
+            </schema>
+        </stream>
+        <box name="Java" type="java">
+            <input port="1" stream="InputStream"/>
+            <output port="1" stream="out:Java_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webserver.streams.WebInput"/>
+            <param name="contextPath" value="/GetCarByRange"/>
+            <param name="linkedWebOutputPath" value="GetCarByRange_Res"/>
+            <param name="outputRequestMetadata" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+        <box name="Query" type="query">
+            <input port="1" stream="out:Java_1"/>
+            <output port="1" stream="out:Query_1"/>
+            <dataref id="querytable" name="QueryTable"/>
+            <param name="operation" value="read"/>
+            <param name="where" value="expression"/>
+            <param name="where-expression" value="(current.Lat&gt;input1.Lat-Range and current.Lat&lt;input1.Lat+Range) and (current.Lng&gt;input1.Lng-Range and current.Lng&lt;input1.Lng+Range)"/>
+            <param name="write-type" value="insert"/>
+            <param name="if-write-fails" value="ignore"/>
+            <param name="no-match-mode" value="output-no-match-null"/>
+            <param name="order-by-direction" value="none"/>
+            <target-list>
+                <item name="input" selection="none">
+                    <include field="SB_ResponseId"/>
+                </item>
+                <item name="current" selection="all">
+                    <remove field="SnsrID"/>
+                    <remove field="SnsrType"/>
+                    <remove field="SrcID"/>
+                    <remove field="UUID"/>
+                </item>
+                <item name="old" selection="none"/>
+                <item name="new" selection="none"/>
+            </target-list>
+            <target-list name="insert">
+                <item name="input" selection="all"/>
+            </target-list>
+            <target-list name="update">
+                <item name="input" selection="all"/>
+            </target-list>
+            <target-list name="no-match">
+                <item name="input" selection="all"/>
+            </target-list>
+        </box>
+        <box name="Aggregate" type="aggregate">
+            <input port="1" stream="out:Query_1"/>
+            <output port="1" stream="out:Aggregate_1"/>
+            <param name="dimension-name.0" value="Dimension1"/>
+            <param name="dimension-type.0" value="Time"/>
+            <param name="dimension-partial.0" value="no"/>
+            <param name="dimension-size.0" value="1"/>
+            <param name="dimension-emit-close-first.0" value="false"/>
+            <param name="output-group-by" value="true"/>
+            <target-list>
+                <expressions>
+                    <include field="InRange">aggregatelist(input)</include>
+                    <include field="SB_ResponseId">lastval(SB_ResponseId)</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="GetCarByRange_Res" type="java">
+            <input port="1" stream="out:Aggregate_1"/>
+            <output port="1" stream="out:GetCarByRange_Res_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webserver.streams.WebInputResponse"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+    </add>
+</modify>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.4.3_a45545bc0fa864b6dd457e084eb653f6e2004e05">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="iRent_API.UpdateInfo"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <implements module-reference="com.digisight.iisi.irent_moto_dp.SchemaControl"/>
+        <import from="com.digisight.iisi.irent_moto_dp.SchemaControl"/>
+        <dynamic-variables/>
+        <stream name="InputStream">
+            <schema>
+                <field name="para" type="tuple">
+                    <schema>
+                        <field name="CID" type="string"/>
+                    </schema>
+                </field>
+            </schema>
+        </stream>
+        <box name="GetInfo_Rq" type="java">
+            <input port="1" stream="InputStream"/>
+            <output port="1" stream="out:GetInfo_Rq_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webserver.streams.WebInput"/>
+            <param name="contextPath" value="/GetInfo"/>
+            <param name="linkedWebOutputPath" value="GetInfo_Rs"/>
+            <param name="outputRequestMetadata" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+        <box name="Map" type="map">
+            <input port="1" stream="out:GetInfo_Rq_1"/>
+            <output port="1" stream="out:Map_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="Data">tuple(para)</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Java" type="java">
+            <input port="1" stream="out:Map_1"/>
+            <output port="1" stream="out:Java_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.Tuple2JSON"/>
+            <param name="EnableStatusPort" value="false"/>
+            <param name="encodeSubType" value="Map"/>
+            <param name="includeNullFields" value="false"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputFieldName" value="PostData"/>
+            <param name="timestampAsLong" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="tupleField" value="Data"/>
+        </box>
+        <box name="Map2" type="map">
+            <input port="1" stream="out:Java_1"/>
+            <output port="1" stream="out:Map2_1"/>
+            <target-list>
+                <item name="input" selection="none">
+                    <include field="PostData"/>
+                    <include field="SB_ResponseId"/>
+                </item>
+                <expressions>
+                    <include field="URL">"http://localhost:8080"</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="InputAdapter" type="inputadapter">
+            <input port="1" stream="out:Map2_1"/>
+            <output port="1" stream="out:InputAdapter_1"/>
+            <output port="2" stream="out:InputAdapter_2"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webreader.WebReader"/>
+            <param name="BasicAuthEnabled" value="false"/>
+            <param name="BasicAuthPassword" value=""/>
+            <param name="BasicAuthUsername" value=""/>
+            <param name="Charset" value=""/>
+            <param name="ConnectTimeout" value="0"/>
+            <param name="EnableControlPort" value="true"/>
+            <param name="EnablePassThroughFields" value="true"/>
+            <param name="HTTPRequestTypeOption" value="GET"/>
+            <param name="IgnoreCertificateErrors" value="false"/>
+            <param name="MaintainLineSeparatorCharacters" value="false"/>
+            <param name="OutputBlankLines" value="false"/>
+            <param name="OutputNullTupleOnCompletion" value="false"/>
+            <param name="OutputTuplePerLine" value="false"/>
+            <param name="PollFrequency" value="10000"/>
+            <param name="ProcessAsFileDownload" value="false"/>
+            <param name="ProxyHost" value=""/>
+            <param name="ProxyPass" value=""/>
+            <param name="ProxyPort" value=""/>
+            <param name="ProxyUser" value=""/>
+            <param name="ReadTimeout" value="0"/>
+            <param name="Url" value=""/>
+            <param name="UseDefaultCharset" value="true"/>
+            <param name="UseProxy" value="false"/>
+            <param name="defaultPostData" value=""/>
+            <param name="defaultURLEncode" value="false"/>
+            <param name="defaultURLEncodePostData" value="false"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="unescapeHtmlResults" value="false"/>
+        </box>
+        <box name="Java3" type="java">
+            <input port="1" stream="out:InputAdapter_2"/>
+            <output port="1" stream="out:Java3_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.JSON2Tuple"/>
+            <param name="enableLooseParsing" value="false"/>
+            <param name="enablePassThroughFields" value="true"/>
+            <param name="enableStatusPort" value="false"/>
+            <param name="jsonFieldName" value="Data"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema&gt;&#13;&#10;    &lt;field name=&quot;Result&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;ErrorCode&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;ErrMsg&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;data&quot; type=&quot;tuple&quot;&gt;&#13;&#10;        &lt;schema&gt;&#13;&#10;            &lt;field name=&quot;CID&quot; type=&quot;string&quot;/&gt;&#13;&#10;            &lt;field name=&quot;OBDStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;GPSStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;GPRSStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;AccON&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;PowON&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;SPEED&quot; type=&quot;double&quot;/&gt;&#13;&#10;            &lt;field name=&quot;Milage&quot; type=&quot;double&quot;/&gt;&#13;&#10;            &lt;field name=&quot;Volt&quot; type=&quot;double&quot;/&gt;&#13;&#10;            &lt;field name=&quot;Lat&quot; type=&quot;double&quot;/&gt;&#13;&#10;            &lt;field name=&quot;Lng&quot; type=&quot;double&quot;/&gt;&#13;&#10;            &lt;field name=&quot;doorStatus&quot; type=&quot;string&quot;/&gt;&#13;&#10;            &lt;field name=&quot;lockStatus&quot; type=&quot;string&quot;/&gt;&#13;&#10;            &lt;field name=&quot;OrderStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;indoorLight&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;SecurityStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;CentralLock&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;GPSTime&quot; type=&quot;string&quot;/&gt;&#13;&#10;            &lt;field name=&quot;iButton&quot; type=&quot;int&quot;/&gt;&#13;&#10;            &lt;field name=&quot;iButtonKey&quot; type=&quot;string&quot;/&gt;&#13;&#10;        &lt;/schema&gt;&#13;&#10;    &lt;/field&gt;&#13;&#10;&lt;/schema&gt;&#13;&#10;"/>
+            <param name="passThroughFieldsFieldName" value="PassThroughFields"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+        <box name="Map4" type="map">
+            <input port="1" stream="out:Java3_1"/>
+            <output port="1" stream="out:Map4_1"/>
+            <target-list>
+                <item name="input" selection="all">
+                    <remove field="PassThroughFields"/>
+                </item>
+                <expressions>
+                    <include field="SB_ResponseId">PassThroughFields.PassThroughFields.SB_ResponseId</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="GetInfo_Rs" type="java">
+            <input port="1" stream="out:Map4_1"/>
+            <output port="1" stream="out:GetInfo_Rs_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webserver.streams.WebInputResponse"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+        <box name="Filter" type="filter">
+            <input port="1" stream="out:GetInfo_Rs_1"/>
+            <output port="1" stream="out:Filter_1"/>
+            <param name="autogen-nomatch-port" value="false"/>
+            <param name="expression.0" value="true"/>
+        </box>
+        <box name="Java2" type="java">
+            <input port="1" stream="out:Filter_1"/>
+            <output port="1" stream="out:Java2_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.Tuple2JSON"/>
+            <param name="EnableStatusPort" value="false"/>
+            <param name="encodeSubType" value="Map"/>
+            <param name="includeNullFields" value="false"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputFieldName" value="JSON"/>
+            <param name="timestampAsLong" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="tupleField" value="data"/>
+        </box>
+        <box name="Java4" type="java">
+            <input port="1" stream="out:Java2_1"/>
+            <output port="1" stream="OutputStream"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.JSON2Tuple"/>
+            <param name="enableLooseParsing" value="false"/>
+            <param name="enablePassThroughFields" value="false"/>
+            <param name="enableStatusPort" value="false"/>
+            <param name="jsonFieldName" value="JSON"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputSchema" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;schema&gt;&#13;&#10;    &lt;field name=&quot;CID&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;OBDStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;GPSStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;GPRSStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;AccON&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;PowON&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;SPEED&quot; type=&quot;double&quot;/&gt;&#13;&#10;    &lt;field name=&quot;Milage&quot; type=&quot;double&quot;/&gt;&#13;&#10;    &lt;field name=&quot;Volt&quot; type=&quot;double&quot;/&gt;&#13;&#10;    &lt;field name=&quot;Lat&quot; type=&quot;double&quot;/&gt;&#13;&#10;    &lt;field name=&quot;Lng&quot; type=&quot;double&quot;/&gt;&#13;&#10;    &lt;field name=&quot;doorStatus&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;lockStatus&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;OrderStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;indoorLight&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;SecurityStatus&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;CentralLock&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;GPSTime&quot; type=&quot;string&quot;/&gt;&#13;&#10;    &lt;field name=&quot;iButton&quot; type=&quot;int&quot;/&gt;&#13;&#10;    &lt;field name=&quot;iButtonKey&quot; type=&quot;string&quot;/&gt;&#13;&#10;&lt;/schema&gt;&#13;&#10;"/>
+            <param name="passThroughFieldsFieldName" value="PassThroughFields"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+        <output-stream name="OutputStream"/>
+    </add>
+</modify>

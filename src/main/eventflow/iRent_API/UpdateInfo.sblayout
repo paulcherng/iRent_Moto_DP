@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="InputStream">
+        <param name="gui:x" value="-558"/>
+        <param name="gui:y" value="404"/>
+    </component>
+    <component name="Filter">
+        <param name="gui:x" value="536"/>
+        <param name="gui:y" value="414"/>
+    </component>
+    <component name="GetInfo_Rq">
+        <param name="gui:x" value="-448"/>
+        <param name="gui:y" value="404"/>
+        <param name="gui:height" value="61"/>
+    </component>
+    <component name="GetInfo_Rs">
+        <param name="gui:x" value="399"/>
+        <param name="gui:y" value="414"/>
+        <param name="gui:height" value="61"/>
+    </component>
+    <component name="InputAdapter">
+        <param name="gui:x" value="26"/>
+        <param name="gui:y" value="404"/>
+    </component>
+    <component name="Java">
+        <param name="gui:x" value="-220"/>
+        <param name="gui:y" value="404"/>
+    </component>
+    <component name="Java2">
+        <param name="gui:x" value="650"/>
+        <param name="gui:y" value="414"/>
+    </component>
+    <component name="Java3">
+        <param name="gui:x" value="147"/>
+        <param name="gui:y" value="414"/>
+    </component>
+    <component name="Java4">
+        <param name="gui:x" value="775"/>
+        <param name="gui:y" value="415"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="-334"/>
+        <param name="gui:y" value="404"/>
+    </component>
+    <component name="Map2">
+        <param name="gui:x" value="-71"/>
+        <param name="gui:y" value="404"/>
+    </component>
+    <component name="Map4">
+        <param name="gui:x" value="296"/>
+        <param name="gui:y" value="414"/>
+    </component>
+    <component name="OutputStream">
+        <param name="gui:x" value="950"/>
+        <param name="gui:y" value="414"/>
+    </component>
+</application-layout>
