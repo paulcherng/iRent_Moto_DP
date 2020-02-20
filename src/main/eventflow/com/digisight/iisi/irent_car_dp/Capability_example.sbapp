@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.4.3_a45545bc0fa864b6dd457e084eb653f6e2004e05">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.digisight.iisi.irent_car_dp.Capability_example"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <implements module-reference="com.digisight.iisi.irent_car_dp.SchemaControl"/>
+        <import from="com.digisight.iisi.irent_car_dp.SchemaControl"/>
+        <parameter-definitions>
+            <parameter default="SrcID" name="SrcID"/>
+            <parameter default="SnsrType" name="SnsrType"/>
+            <parameter default="192.168.61.14:9092" name="Broker"/>
+        </parameter-definitions>
+        <dynamic-variables/>
+        <data name="JDBCTable" type="jdbctable">
+            <param name="connection" value="IIP"/>
+        </data>
+        <data name="QueryTable" shared="true" source="concrete" type="querytable">
+            <param name="storage-method" value="heap"/>
+            <param name="replicated" value="false"/>
+            <table-schema schema="validatedData">
+                <primary-index type="btree">
+                    <field name="CID"/>
+                </primary-index>
+            </table-schema>
+            <param name="truncate" value="false"/>
+            <preload format="csv" mode="empty"/>
+        </data>
+        <stream name="ValidatedDataIn" schema="validatedData"/>
+        <box name="InputAdapter" type="inputadapter">
+            <output port="1" stream="out:InputAdapter_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.once.Once"/>
+            <param name="OutputField" value="time"/>
+        </box>
+        <module-reference name="Module4">
+            <output name="OutputStream" port="1" stream="out:Module4_1"/>
+            <param name="file" value="iRent_Car_API.UpdateInfo"/>
+        </module-reference>
+        <module-reference name="Module">
+            <param name="parallel" value="true"/>
+            <param name="file" value="iRent_Car_API.GetCarByCid"/>
+            <input-dataref name="QueryTable" table="QueryTable"/>
+        </module-reference>
+        <module-reference name="Module2">
+            <param name="parallel" value="true"/>
+            <param name="file" value="iRent_Car_API.GetCarByRange"/>
+            <input-dataref name="QueryTable" table="QueryTable"/>
+        </module-reference>
+        <module-reference name="Module3">
+            <output name="OutputStream" port="1" stream="out:Module3_1"/>
+            <param name="parallel" value="true"/>
+            <param name="file" value="iRent_Car_API.GetCarByList"/>
+            <input-dataref name="QueryTable" table="QueryTable"/>
+        </module-reference>
+        <box name="Query" type="query">
+            <input port="1" stream="ValidatedDataIn"/>
+            <output port="1" stream="out:Query_1"/>
+            <dataref id="querytable" name="QueryTable"/>
+            <param name="operation" value="write"/>
+            <param name="where" value="primary-key"/>
+            <param name="key-field.0" value="CID"/>
+            <param name="key-value.0" value="CID"/>
+            <param name="write-type" value="insert"/>
+            <param name="if-write-fails" value="force"/>
+            <param name="no-match-mode" value="output-no-match-null"/>
+            <param name="order-by-direction" value="none"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <item name="old" selection="none"/>
+                <item name="new" selection="none"/>
+                <item name="current" selection="none"/>
+            </target-list>
+            <target-list name="insert">
+                <item name="input" selection="all"/>
+            </target-list>
+            <target-list goal-schema="validatedData" name="update">
+                <item name="input" selection="all"/>
+            </target-list>
+            <target-list goal-schema="validatedData" name="no-match">
+                <item name="input" selection="all"/>
+            </target-list>
+        </box>
+        <box name="Query2" type="query">
+            <input port="1" stream="out:Module4_1"/>
+            <output port="1" stream="out:Query2_1"/>
+            <dataref id="querytable" name="QueryTable"/>
+            <param name="operation" value="write"/>
+            <param name="where" value="primary-key"/>
+            <param name="key-field.0" value="CID"/>
+            <param name="key-value.0" value="CID"/>
+            <param name="write-type" value="insert"/>
+            <param name="if-write-fails" value="force"/>
+            <param name="no-match-mode" value="output-no-match-null"/>
+            <param name="order-by-direction" value="none"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <item name="old" selection="none"/>
+                <item name="new" selection="none"/>
+                <item name="current" selection="none"/>
+            </target-list>
+            <target-list name="insert">
+                <item name="input" selection="all"/>
+            </target-list>
+            <target-list goal-schema="validatedData" name="update">
+                <item name="input" selection="all"/>
+            </target-list>
+            <target-list goal-schema="validatedData" name="no-match">
+                <item name="input" selection="all"/>
+            </target-list>
+        </box>
+        <box name="Query4" type="query">
+            <input port="1" stream="out:InputAdapter_1"/>
+            <output port="1" stream="out:Query4_1"/>
+            <dataref id="jdbctable" name="JDBCTable"/>
+            <param name="sql" value="select UUID,SrcID,SnsrType,SnsrID,CID,OBDStatus,GPSStatus,GPRSStatus,AccON,PowON,SPEED,Milage,Volt,Lat,Lng,doorStatus,lockStatus,OrderStatus,indoorLight,SecurityStatus,CentralLock,GPSTime,iButton,iButtonKey from(&#13;&#10;select * , ROW_Number() OVER(Partition by cid Order by GPStime desc) sn  from [iRent_Moto_processed]) R &#13;&#10;where R.sn=1"/>
+            <param name="use-callable-statements" value="false"/>
+            <param name="send-null-tuple" value="false"/>
+            <param name="jdbc-output-column" value="0"/>
+            <target-list>
+                <item name="table" selection="all"/>
+                <item name="input" selection="none"/>
+            </target-list>
+            <param name="result-set" value="query"/>
+        </box>
+        <box name="Map" type="map">
+            <input port="1" stream="out:Query_1"/>
+            <output port="1" stream="ProcessedDataOut"/>
+            <target-list>
+                <item name="input" selection="all">
+                    <replace field="GPSTime">parse_time(GPSTime,"yyyy/MM/dd HH:mm:ss")</replace>
+                </item>
+            </target-list>
+        </box>
+        <box name="Map2" type="map">
+            <input port="1" stream="out:Query4_1"/>
+            <output port="1" stream="out:Map2_1"/>
+            <target-list>
+                <item name="input" selection="all">
+                    <replace field="AccON">int(AccON)</replace>
+                    <replace field="CentralLock">int(CentralLock)</replace>
+                    <replace field="GPRSStatus">int(GPRSStatus)</replace>
+                    <replace field="GPSStatus">int(GPSStatus)</replace>
+                    <replace field="iButton">int(iButton)</replace>
+                    <replace field="indoorLight">int(indoorLight)</replace>
+                    <replace field="OBDStatus">int(OBDStatus)</replace>
+                    <replace field="OrderStatus">int(OrderStatus)</replace>
+                    <replace field="PowON">int(PowON)</replace>
+                    <replace field="SecurityStatus">int(SecurityStatus)</replace>
+                    <replace field="GPSTime">format_time(GPSTime,"yyyy/MM/dd HH:mm:ss")</replace>
+                </item>
+            </target-list>
+        </box>
+        <output-stream name="ProcessedDataOut" schema="processedData"/>
+        <box name="Query3" type="query">
+            <input port="1" stream="out:Map2_1"/>
+            <output port="1" stream="NewestInMemoryData"/>
+            <dataref id="querytable" name="QueryTable"/>
+            <param name="operation" value="write"/>
+            <param name="where" value="primary-key"/>
+            <param name="key-field.0" value="CID"/>
+            <param name="key-value.0" value="CID"/>
+            <param name="write-type" value="insert"/>
+            <param name="if-write-fails" value="ignore"/>
+            <param name="no-match-mode" value="output-no-match-null"/>
+            <param name="order-by-direction" value="none"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <item name="old" selection="none"/>
+                <item name="new" selection="none"/>
+                <item name="current" selection="none"/>
+            </target-list>
+            <target-list goal-schema="validatedData" name="insert">
+                <item name="input" selection="all"/>
+            </target-list>
+            <target-list goal-schema="validatedData" name="update">
+                <item name="input" selection="all"/>
+            </target-list>
+            <target-list goal-schema="validatedData" name="no-match">
+                <item name="input" selection="all"/>
+            </target-list>
+        </box>
+        <output-stream name="NewestInMemoryData" scope="public"/>
+    </add>
+</modify>

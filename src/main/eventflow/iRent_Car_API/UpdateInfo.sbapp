@@ -6,11 +6,11 @@
         </annotations>
         <type-metadata>
             <param name="type" value="module"/>
-            <param name="fully-qualified-name" value="iRent_API.UpdateInfo"/>
+            <param name="fully-qualified-name" value="iRent_Car_API.UpdateInfo"/>
         </type-metadata>
         <memory-model-settings/>
-        <implements module-reference="com.digisight.iisi.irent_moto_dp.SchemaControl"/>
-        <import from="com.digisight.iisi.irent_moto_dp.SchemaControl"/>
+        <implements module-reference="com.digisight.iisi.irent_car_dp.SchemaControl"/>
+        <import from="com.digisight.iisi.irent_car_dp.SchemaControl"/>
         <dynamic-variables/>
         <stream name="InputStream">
             <schema>

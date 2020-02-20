@@ -6,11 +6,11 @@
         </annotations>
         <type-metadata>
             <param name="type" value="module"/>
-            <param name="fully-qualified-name" value="com.digisight.iisi.irent_moto_dp.Subscriber_template"/>
+            <param name="fully-qualified-name" value="com.digisight.iisi.irent_car_dp.Subscriber_template"/>
         </type-metadata>
         <memory-model-settings/>
-        <implements module-reference="com.digisight.iisi.irent_moto_dp.SchemaControl"/>
-        <import from="com.digisight.iisi.irent_moto_dp.SchemaControl"/>
+        <implements module-reference="com.digisight.iisi.irent_car_dp.SchemaControl"/>
+        <import from="com.digisight.iisi.irent_car_dp.SchemaControl"/>
         <parameter-definitions>
             <parameter default="SrcID" name="SrcID"/>
             <parameter name="SnsrType"/>

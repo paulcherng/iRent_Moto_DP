@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="InputStream">
+        <param name="gui:x" value="-202"/>
+        <param name="gui:y" value="114"/>
+    </component>
+    <component name="toElasticSearch">
+        <param name="gui:x" value="610"/>
+        <param name="gui:y" value="13"/>
+        <param name="gui:bends:1" value="563,53;565,43"/>
+    </component>
+    <component name="JDBCTable">
+        <param name="gui:x" value="251"/>
+        <param name="gui:y" value="-121"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="JDBCTable2">
+        <param name="gui:x" value="35"/>
+        <param name="gui:y" value="257"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="CSVWriter">
+        <param name="gui:x" value="746"/>
+        <param name="gui:y" value="-67"/>
+        <param name="gui:bends:1" value="516,44;586,-240;653,-240;701,-47"/>
+        <param name="gui:bends:2" value="694,-91;710,-27"/>
+    </component>
+    <component name="Filter">
+        <param name="gui:x" value="261"/>
+        <param name="gui:y" value="121"/>
+        <param name="gui:height" value="65"/>
+        <param name="gui:bends:1" value="196,154;196,153"/>
+    </component>
+    <component name="Filter2">
+        <param name="gui:x" value="-202"/>
+        <param name="gui:y" value="-234"/>
+    </component>
+    <component name="Java">
+        <param name="gui:x" value="261"/>
+        <param name="gui:y" value="11"/>
+        <param name="gui:bends:1" value="164,402;251,41"/>
+    </component>
+    <component name="KafkaConsume">
+        <param name="gui:x" value="45"/>
+        <param name="gui:y" value="372"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="426"/>
+        <param name="gui:y" value="307"/>
+        <param name="gui:bends:1" value="364,157;408,337"/>
+    </component>
+    <component name="Map2">
+        <param name="gui:x" value="610"/>
+        <param name="gui:y" value="-121"/>
+        <param name="gui:bends:1" value="523,36;553,-91"/>
+    </component>
+    <component name="Map3">
+        <param name="gui:x" value="426"/>
+        <param name="gui:y" value="405"/>
+        <param name="gui:bends:1" value="331,166;393,435"/>
+    </component>
+    <component name="Map4">
+        <param name="gui:x" value="-52"/>
+        <param name="gui:y" value="372"/>
+    </component>
+    <component name="Map4Copy">
+        <param name="gui:x" value="426"/>
+        <param name="gui:y" value="111"/>
+    </component>
+    <component name="Map5">
+        <param name="gui:x" value="426"/>
+        <param name="gui:y" value="209"/>
+        <param name="gui:bends:1" value="336,149;358,239"/>
+    </component>
+    <component name="MetronomeCopy">
+        <param name="gui:x" value="-311"/>
+        <param name="gui:y" value="-234"/>
+    </component>
+    <component name="Query">
+        <param name="gui:x" value="610"/>
+        <param name="gui:y" value="-234"/>
+        <param name="gui:bends:1" value="535,28;593,-204"/>
+    </component>
+    <component name="Query2">
+        <param name="gui:x" value="45"/>
+        <param name="gui:y" value="124"/>
+    </component>
+    <component name="Query3Copy">
+        <param name="gui:x" value="-52"/>
+        <param name="gui:y" value="-234"/>
+    </component>
+    <component name="Split">
+        <param name="gui:x" value="426"/>
+        <param name="gui:y" value="8"/>
+        <param name="gui:height" value="65"/>
+        <param name="gui:bends:1" value="373,41;373,40"/>
+    </component>
+    <component name="Split2">
+        <param name="gui:x" value="-202"/>
+        <param name="gui:y" value="362"/>
+    </component>
+    <component name="Start">
+        <param name="gui:x" value="-311"/>
+        <param name="gui:y" value="362"/>
+    </component>
+    <component name="Union">
+        <param name="gui:x" value="-52"/>
+        <param name="gui:y" value="124"/>
+        <param name="gui:bends:2" value="-100,382;-62,164"/>
+    </component>
+    <component name="DateFormatConfig">
+        <param name="gui:x" value="610"/>
+        <param name="gui:y" value="111"/>
+    </component>
+    <component name="OutputStream">
+        <param name="gui:x" value="746"/>
+        <param name="gui:y" value="-234"/>
+    </component>
+    <component name="PurgeHourConfig">
+        <param name="gui:x" value="610"/>
+        <param name="gui:y" value="307"/>
+    </component>
+    <component name="PurgeMinuteConfig">
+        <param name="gui:x" value="610"/>
+        <param name="gui:y" value="405"/>
+    </component>
+    <component name="RootPathConfig">
+        <param name="gui:x" value="610"/>
+        <param name="gui:y" value="209"/>
+    </component>
+</application-layout>

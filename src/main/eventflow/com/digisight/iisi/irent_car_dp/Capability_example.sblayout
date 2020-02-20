@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="ValidatedDataIn">
+        <param name="gui:x" value="11"/>
+        <param name="gui:y" value="453"/>
+    </component>
+    <component name="Module">
+        <param name="gui:x" value="-35"/>
+        <param name="gui:y" value="-50"/>
+    </component>
+    <component name="Module2">
+        <param name="gui:x" value="-35"/>
+        <param name="gui:y" value="69"/>
+    </component>
+    <component name="Module3">
+        <param name="gui:x" value="-35"/>
+        <param name="gui:y" value="-169"/>
+    </component>
+    <component name="Module4">
+        <param name="gui:x" value="-35"/>
+        <param name="gui:y" value="-288"/>
+    </component>
+    <component name="JDBCTable">
+        <param name="gui:x" value="189"/>
+        <param name="gui:y" value="-298"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="QueryTable">
+        <param name="gui:x" value="1"/>
+        <param name="gui:y" value="261"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="InputAdapter">
+        <param name="gui:x" value="11"/>
+        <param name="gui:y" value="-431"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="279"/>
+        <param name="gui:y" value="453"/>
+    </component>
+    <component name="Map2">
+        <param name="gui:x" value="279"/>
+        <param name="gui:y" value="-431"/>
+    </component>
+    <component name="Query">
+        <param name="gui:x" value="199"/>
+        <param name="gui:y" value="453"/>
+    </component>
+    <component name="Query2">
+        <param name="gui:x" value="118"/>
+        <param name="gui:y" value="-288"/>
+    </component>
+    <component name="Query3">
+        <param name="gui:x" value="384"/>
+        <param name="gui:y" value="-431"/>
+    </component>
+    <component name="Query4">
+        <param name="gui:x" value="199"/>
+        <param name="gui:y" value="-431"/>
+    </component>
+    <component name="NewestInMemoryData">
+        <param name="gui:x" value="502"/>
+        <param name="gui:y" value="-431"/>
+    </component>
+    <component name="ProcessedDataOut">
+        <param name="gui:x" value="384"/>
+        <param name="gui:y" value="453"/>
+    </component>
+    <component name="Group">
+        <param name="gui:x" value="-98"/>
+        <param name="gui:y" value="-334"/>
+        <param name="gui:width" value="277"/>
+        <param name="gui:height" value="486"/>
+    </component>
+    <gui.group name="Group" visual-state="open">
+        <member name="Module2"/>
+        <member name="Module"/>
+        <member name="Module4"/>
+        <member name="Query2"/>
+        <member name="Module3"/>
+        <param name="gui:x" value="-98"/>
+        <param name="gui:y" value="-334"/>
+        <param name="gui:width" value="277"/>
+        <param name="gui:height" value="486"/>
+    </gui.group>
+</application-layout>

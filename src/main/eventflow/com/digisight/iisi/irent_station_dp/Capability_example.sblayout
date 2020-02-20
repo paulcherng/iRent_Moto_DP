@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="ValidatedDataIn">
+        <param name="gui:x" value="136"/>
+        <param name="gui:y" value="406"/>
+    </component>
+    <component name="configIn">
+        <param name="gui:x" value="136"/>
+        <param name="gui:y" value="308"/>
+    </component>
+    <component name="Module">
+        <param name="gui:x" value="136"/>
+        <param name="gui:y" value="-87"/>
+    </component>
+    <component name="Module2">
+        <param name="gui:x" value="136"/>
+        <param name="gui:y" value="32"/>
+    </component>
+    <component name="Module3">
+        <param name="gui:x" value="136"/>
+        <param name="gui:y" value="-206"/>
+    </component>
+    <component name="JDBCTable">
+        <param name="gui:x" value="303"/>
+        <param name="gui:y" value="-216"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="QueryTable">
+        <param name="gui:x" value="126"/>
+        <param name="gui:y" value="214"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="InputAdapter">
+        <param name="gui:x" value="136"/>
+        <param name="gui:y" value="-349"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="393"/>
+        <param name="gui:y" value="406"/>
+    </component>
+    <component name="Query">
+        <param name="gui:x" value="313"/>
+        <param name="gui:y" value="406"/>
+    </component>
+    <component name="Query3">
+        <param name="gui:x" value="393"/>
+        <param name="gui:y" value="-349"/>
+    </component>
+    <component name="Query4">
+        <param name="gui:x" value="313"/>
+        <param name="gui:y" value="-349"/>
+    </component>
+    <component name="NewestInMemoryData">
+        <param name="gui:x" value="511"/>
+        <param name="gui:y" value="-349"/>
+    </component>
+    <component name="ProcessedDataOut">
+        <param name="gui:x" value="511"/>
+        <param name="gui:y" value="406"/>
+    </component>
+    <component name="Group">
+        <param name="gui:x" value="102"/>
+        <param name="gui:y" value="-251"/>
+        <param name="gui:width" value="126"/>
+        <param name="gui:height" value="367"/>
+    </component>
+    <gui.group name="Group" visual-state="open">
+        <member name="Module2"/>
+        <member name="Module"/>
+        <member name="Module3"/>
+        <param name="gui:x" value="102"/>
+        <param name="gui:y" value="-251"/>
+        <param name="gui:width" value="126"/>
+        <param name="gui:height" value="367"/>
+    </gui.group>
+</application-layout>

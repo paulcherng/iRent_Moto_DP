@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="iRent_Car">
+        <param name="gui:x" value="-85"/>
+        <param name="gui:y" value="-208"/>
+    </component>
+    <component name="iRent_Motocycle">
+        <param name="gui:x" value="-85"/>
+        <param name="gui:y" value="30"/>
+    </component>
+    <component name="iRent_Station">
+        <param name="gui:x" value="-85"/>
+        <param name="gui:y" value="-89"/>
+    </component>
+</application-layout>

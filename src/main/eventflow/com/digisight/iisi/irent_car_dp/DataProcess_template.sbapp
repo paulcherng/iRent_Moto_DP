@@ -6,7 +6,7 @@
         </annotations>
         <type-metadata>
             <param name="type" value="module"/>
-            <param name="fully-qualified-name" value="com.digisight.iisi.irent_moto_dp.DataProcess_template"/>
+            <param name="fully-qualified-name" value="com.digisight.iisi.irent_car_dp.DataProcess_template"/>
         </type-metadata>
         <memory-model-settings/>
         <parameter-definitions>
@@ -34,7 +34,7 @@
         </module-reference>
         <module-reference name="Subscriber_template">
             <output name="listOut" port="1" stream="out:Subscriber_template_1"/>
-            <param name="file" value="com.digisight.iisi.irent_moto_dp.Subscriber_template"/>
+            <param name="file" value="com.digisight.iisi.irent_car_dp.Subscriber_template"/>
             <parameter-bindings>
                 <binding name="SrcID" value="${SrcID}"/>
                 <binding name="SnsrType" value="${SnsrType}"/>
@@ -87,7 +87,9 @@
         </box>
         <module-reference name="ProcessedBufferHandle">
             <input name="InputStream" port="1" stream="out:Split_2"/>
-            <param name="file" value="com.digisight.iisi.irent_moto_dp.ProcessedBufferHandle"/>
+            <output name="DateFormatConfig" port="1" stream="out:ProcessedBufferHandle_1"/>
+            <output name="RootPathConfig" port="2" stream="out:ProcessedBufferHandle_2"/>
+            <param name="file" value="com.digisight.iisi.irent_car_dp.ProcessedBufferHandle"/>
             <parameter-bindings>
                 <binding name="SrcID" value="${SrcID}"/>
                 <binding name="SnsrType" value="${SnsrType}"/>
@@ -126,10 +128,9 @@
             <param name="strict" value="false"/>
         </box>
         <module-reference name="capability_exampleRef1">
-            <input name="configIn" port="1" stream="out:Split_3"/>
-            <input name="ValidatedDataIn" port="2" stream="out:UnionCopy_1"/>
+            <input name="ValidatedDataIn" port="1" stream="out:UnionCopy_1"/>
             <output name="ProcessedDataOut" port="1" stream="out:capability_exampleRef1_1"/>
-            <param name="file" value="com.digisight.iisi.irent_moto_dp.Capability_example"/>
+            <param name="file" value="com.digisight.iisi.irent_car_dp.Capability_example"/>
             <parameter-bindings>
                 <binding name="SrcID" value="${SrcID}"/>
                 <binding name="SnsrType" value="${SnsrType}"/>

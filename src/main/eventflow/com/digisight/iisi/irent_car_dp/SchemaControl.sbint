@@ -5,7 +5,7 @@
     </annotations>
     <type-metadata>
         <param name="type" value="interface"/>
-        <param name="fully-qualified-name" value="com.digisight.iisi.irent_moto_dp.SchemaControl"/>
+        <param name="fully-qualified-name" value="com.digisight.iisi.irent_car_dp.SchemaControl"/>
     </type-metadata>
     <memory-model-settings/>
     <named-schemas>
@@ -31,7 +31,7 @@
             <field name="indoorLight" type="int"/>
             <field name="SecurityStatus" type="int"/>
             <field name="CentralLock" type="int"/>
-            <field name="GPSTime" type="string"/>
+            <field name="GPSTime" type="timestamp"/>
             <field name="iButton" type="int"/>
             <field name="iButtonKey" type="string"/>
         </schema>

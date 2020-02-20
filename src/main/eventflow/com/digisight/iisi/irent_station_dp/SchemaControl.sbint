@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<application version="10.4.3_a45545bc0fa864b6dd457e084eb653f6e2004e05">
+    <annotations>
+        <annotation name="hygienic"/>
+    </annotations>
+    <type-metadata>
+        <param name="type" value="interface"/>
+        <param name="fully-qualified-name" value="com.digisight.iisi.irent_station_dp.SchemaControl"/>
+    </type-metadata>
+    <memory-model-settings/>
+    <named-schemas>
+        <schema name="processedData">
+            <field name="UUID" type="string"/>
+            <field name="SrcID" type="string"/>
+            <field name="SnsrType" type="string"/>
+            <field name="SnsrID" type="string"/>
+            <field name="Station" type="string"/>
+            <field name="Addr" type="string"/>
+            <field name="lon" type="double"/>
+            <field name="lat" type="double"/>
+            <field name="TotalCnt" type="string"/>
+            <field name="FullCnt" type="string"/>
+            <field name="EmptyCnt" type="string"/>
+            <field name="UpdateTime" type="timestamp"/>
+            <field name="CheckKey" type="string"/>
+        </schema>
+        <schema name="validatedData">
+            <field name="UUID" type="string"/>
+            <field name="SrcID" type="string"/>
+            <field name="SnsrType" type="string"/>
+            <field name="SnsrID" type="string"/>
+            <field name="Station" type="string"/>
+            <field name="Addr" type="string"/>
+            <field name="lon" type="double"/>
+            <field name="lat" type="double"/>
+            <field name="TotalCnt" type="string"/>
+            <field name="FullCnt" type="string"/>
+            <field name="EmptyCnt" type="string"/>
+            <field name="UpdateTime" type="timestamp"/>
+            <field name="CheckKey" type="string"/>
+        </schema>
+    </named-schemas>
+    <dynamic-variables/>
+</application>

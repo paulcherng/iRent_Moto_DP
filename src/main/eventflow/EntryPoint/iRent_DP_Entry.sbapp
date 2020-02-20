@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.4.3_a45545bc0fa864b6dd457e084eb653f6e2004e05">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="EntryPoint.iRent_DP_Entry"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <parameter-definitions>
+            <parameter default="192.168.61.14:9092" name="Broker"/>
+        </parameter-definitions>
+        <dynamic-variables/>
+        <module-reference name="iRent_Car">
+            <output name="FlagConfig" port="1" stream="out:iRent_Car_1"/>
+            <output name="PredictModelSwitch" port="2" stream="out:iRent_Car_2"/>
+            <output name="toLiveView" port="3" stream="out:iRent_Car_3"/>
+            <param name="parallel" value="true"/>
+            <param name="file" value="com.digisight.iisi.irent_car_dp.DataProcess_template"/>
+            <parameter-bindings>
+                <binding name="Broker" value="${Broker}"/>
+                <binding name="SrcID" value="iRent_Car"/>
+            </parameter-bindings>
+        </module-reference>
+        <module-reference disabled="true" name="iRent_Motocycle">
+            <output name="FlagConfig" port="1" stream="out:iRent_Motocycle_1"/>
+            <output name="PredictModelSwitch" port="2" stream="out:iRent_Motocycle_2"/>
+            <output name="toLiveView" port="3" stream="out:iRent_Motocycle_3"/>
+            <param name="file" value="com.digisight.iisi.irent_motocycle_dp.DataProcess_template"/>
+            <parameter-bindings>
+                <binding name="Broker" value="${Broker}"/>
+                <binding name="SrcID" value="iRent_Motocycle"/>
+            </parameter-bindings>
+        </module-reference>
+        <module-reference name="iRent_Station">
+            <output name="FlagConfig" port="1" stream="out:iRent_Station_1"/>
+            <output name="PredictModelSwitch" port="2" stream="out:iRent_Station_2"/>
+            <output name="toLiveView" port="3" stream="out:iRent_Station_3"/>
+            <param name="parallel" value="true"/>
+            <param name="file" value="com.digisight.iisi.irent_station_dp.DataProcess_template"/>
+            <parameter-bindings>
+                <binding name="Broker" value="${Broker}"/>
+                <binding name="SrcID" value="iRent_Station"/>
+            </parameter-bindings>
+        </module-reference>
+    </add>
+</modify>

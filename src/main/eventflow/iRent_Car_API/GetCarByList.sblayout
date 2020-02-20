@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="InputStream">
+        <param name="gui:x" value="-515"/>
+        <param name="gui:y" value="70"/>
+    </component>
+    <component name="QueryTable">
+        <param name="gui:x" value="-62"/>
+        <param name="gui:y" value="13"/>
+        <param name="gui:width" value="80"/>
+        <param name="gui:height" value="56"/>
+    </component>
+    <component name="Aggregate">
+        <param name="gui:x" value="161"/>
+        <param name="gui:y" value="60"/>
+    </component>
+    <component name="Gather">
+        <param name="gui:x" value="353"/>
+        <param name="gui:y" value="121"/>
+        <param name="gui:bends:1" value="315,90;321,141"/>
+        <param name="gui:bends:2" value="-157,110;-145,161"/>
+    </component>
+    <component name="GetCarByList_Rq">
+        <param name="gui:x" value="-404"/>
+        <param name="gui:y" value="70"/>
+        <param name="gui:height" value="61"/>
+    </component>
+    <component name="GetCarByList_Rs">
+        <param name="gui:x" value="481"/>
+        <param name="gui:y" value="22"/>
+        <param name="gui:height" value="61"/>
+        <param name="gui:bends:1" value="429,151;453,52"/>
+    </component>
+    <component name="Iterate">
+        <param name="gui:x" value="-132"/>
+        <param name="gui:y" value="-120"/>
+        <param name="gui:bends:1" value="-160,90;-138,-90"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="-132"/>
+        <param name="gui:y" value="70"/>
+    </component>
+    <component name="Map2">
+        <param name="gui:x" value="248"/>
+        <param name="gui:y" value="60"/>
+    </component>
+    <component name="Map3">
+        <param name="gui:x" value="2"/>
+        <param name="gui:y" value="-35"/>
+    </component>
+    <component name="Query">
+        <param name="gui:x" value="-52"/>
+        <param name="gui:y" value="-120"/>
+    </component>
+    <component name="Split2">
+        <param name="gui:x" value="-271"/>
+        <param name="gui:y" value="70"/>
+    </component>
+    <component name="Union">
+        <param name="gui:x" value="84"/>
+        <param name="gui:y" value="60"/>
+    </component>
+    <component name="OutputStream">
+        <param name="gui:x" value="481"/>
+        <param name="gui:y" value="121"/>
+    </component>
+</application-layout>

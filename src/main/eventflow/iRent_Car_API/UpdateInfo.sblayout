@@ -34,8 +34,8 @@
         <param name="gui:y" value="414"/>
     </component>
     <component name="Java4">
-        <param name="gui:x" value="775"/>
-        <param name="gui:y" value="415"/>
+        <param name="gui:x" value="809"/>
+        <param name="gui:y" value="414"/>
     </component>
     <component name="Map">
         <param name="gui:x" value="-334"/>

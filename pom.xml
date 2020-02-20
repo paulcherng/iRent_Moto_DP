@@ -27,19 +27,19 @@
     		<type>ep-eventflow-fragment</type>
     	</dependency>
     	<dependency>
-    		<groupId>com.example</groupId>
-    		<artifactId>dataProcess_Template</artifactId>
+    		<groupId>com.tibco.ep.sb.adapter</groupId>
+    		<artifactId>kafka</artifactId>
+    		<version>10.4.3</version>
+    	</dependency>
+    	<dependency>
+    		<groupId>com.iisi.digisight</groupId>
+    		<artifactId>iRent_Moto_DC</artifactId>
     		<version>0.0.1-SNAPSHOT</version>
     		<type>ep-eventflow-fragment</type>
     	</dependency>
     	<dependency>
     		<groupId>com.tibco.ep.sb.adapter</groupId>
-    		<artifactId>webserver</artifactId>
-    		<version>10.4.3</version>
-    	</dependency>
-    	<dependency>
-    		<groupId>com.tibco.ep.sb.adapter</groupId>
-    		<artifactId>webreader</artifactId>
+    		<artifactId>fileio</artifactId>
     		<version>10.4.3</version>
     	</dependency>
     </dependencies>

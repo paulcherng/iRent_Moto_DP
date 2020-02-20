@@ -6,7 +6,7 @@
         </annotations>
         <type-metadata>
             <param name="type" value="module"/>
-            <param name="fully-qualified-name" value="iRent_API.GetCarByCid"/>
+            <param name="fully-qualified-name" value="iRent_Car_API.GetCarByCid"/>
         </type-metadata>
         <memory-model-settings/>
         <dynamic-variables/>
