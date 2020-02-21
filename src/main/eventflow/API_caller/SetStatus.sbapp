@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.4.3_a45545bc0fa864b6dd457e084eb653f6e2004e05">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="API_caller.SetStatus"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <named-schemas>
+            <schema name="InitSchema">
+                <field name="para" type="tuple">
+                    <schema>
+                        <field name="Status" type="int"/>
+                    </schema>
+                </field>
+            </schema>
+            <schema name="RequestSchema">
+                <field name="para" type="tuple">
+                    <schema>
+                        <field name="Status" type="int"/>
+                    </schema>
+                </field>
+            </schema>
+            <schema name="ResponseSchema">
+                <field name="Result" type="string"/>
+                <field name="ErrorCode" type="string"/>
+                <field name="ErrMsg" type="string"/>
+            </schema>
+            <schema name="FinalSchema">
+                <parent-schemas>
+                    <parent-schema name="ResponseSchema"/>
+                </parent-schemas>
+                <field name="SB_ResponseId" type="string"/>
+            </schema>
+        </named-schemas>
+        <parameter-definitions>
+            <parameter default="Digisight" name="Prefix"/>
+            <parameter default="SetStatus" name="Name"/>
+            <parameter name="TargetURL"/>
+            <parameter default="192.168.61.14:9092" name="Broker"/>
+        </parameter-definitions>
+        <dynamic-variables>
+            <dynamic-variable initial-expression="&quot;&quot;" name="SB_ResponseID" setter-expression="input.SB_ResponseId" setter-stream="ReponseId"/>
+        </dynamic-variables>
+        <stream name="InputStream" schema="InitSchema"/>
+        <box name="Request" type="java">
+            <input port="1" stream="InputStream"/>
+            <output port="1" stream="out:Request_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webserver.streams.WebInput"/>
+            <param name="contextPath" value="/${Prefix}/${Name}"/>
+            <param name="linkedWebOutputPath" value="Response"/>
+            <param name="outputRequestMetadata" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+        <box name="Split" type="split">
+            <input port="1" stream="out:Request_1"/>
+            <output port="1" stream="out:Split_1"/>
+            <output port="2" stream="ReponseId"/>
+            <output port="3" stream="out:Split_3"/>
+            <param name="output-count" value="3"/>
+        </box>
+        <output-stream name="ReponseId"/>
+        <module-reference name="LogPoint01">
+            <input name="InputStream" port="1" stream="out:Split_1"/>
+            <param name="file" value="com.iisigroup.product.iip.apicreator.api_logpoint"/>
+            <parameter-bindings>
+                <binding name="Name" value="${Prefix}_${Name}"/>
+                <binding name="LogPoint" value="RcvRequest"/>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
+        </module-reference>
+        <box name="Map" type="map">
+            <input port="1" stream="out:Split_3"/>
+            <output port="1" stream="out:Map_1"/>
+            <target-list>
+                <item name="input" selection="all">
+                    <remove field="SB_ResponseId"/>
+                </item>
+            </target-list>
+        </box>
+        <box name="ModifyPart" type="map">
+            <input port="1" stream="out:Map_1"/>
+            <output port="1" stream="RequestTypeCheck"/>
+            <target-list>
+                <item name="input" selection="all"/>
+            </target-list>
+        </box>
+        <output-stream name="RequestTypeCheck" schema="RequestSchema"/>
+        <box name="Map2" type="map">
+            <input port="1" stream="RequestTypeCheck"/>
+            <output port="1" stream="out:Map2_1"/>
+            <target-list>
+                <item name="input" selection="none"/>
+                <expressions>
+                    <include field="RequestData">new_tuple(input)</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Java" type="java">
+            <input port="1" stream="out:Map2_1"/>
+            <output port="1" stream="out:Java_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.Tuple2JSON"/>
+            <param name="EnableStatusPort" value="false"/>
+            <param name="encodeSubType" value="Map"/>
+            <param name="includeNullFields" value="true"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputFieldName" value="PostData"/>
+            <param name="timestampAsLong" value="false"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+            <param name="tupleField" value="RequestData"/>
+        </box>
+        <box name="Map3" type="map">
+            <input port="1" stream="out:Java_1"/>
+            <output port="1" stream="out:Map3_1"/>
+            <target-list>
+                <item name="input" selection="all">
+                    <remove field="RequestData"/>
+                </item>
+                <expressions>
+                    <include field="URL">"${TargetURL}"</include>
+                    <include field="URLEncode">true</include>
+                    <include field="URLEncodePostData">true</include>
+                    <include field="RequestType">"POST"</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Split2" type="split">
+            <input port="1" stream="out:Map3_1"/>
+            <output port="1" stream="out:Split2_1"/>
+            <output port="2" stream="out:Split2_2"/>
+            <param name="output-count" value="2"/>
+        </box>
+        <box name="InputAdapter" type="inputadapter">
+            <input port="1" stream="out:Split2_2"/>
+            <output port="1" stream="out:InputAdapter_1"/>
+            <output port="2" stream="out:InputAdapter_2"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webreader.WebReader"/>
+            <param name="BasicAuthEnabled" value="false"/>
+            <param name="BasicAuthPassword" value=""/>
+            <param name="BasicAuthUsername" value=""/>
+            <param name="Charset" value=""/>
+            <param name="ConnectTimeout" value="0"/>
+            <param name="EnableControlPort" value="true"/>
+            <param name="EnablePassThroughFields" value="false"/>
+            <param name="HTTPRequestTypeOption" value="POST"/>
+            <param name="IgnoreCertificateErrors" value="false"/>
+            <param name="MaintainLineSeparatorCharacters" value="false"/>
+            <param name="OutputBlankLines" value="false"/>
+            <param name="OutputNullTupleOnCompletion" value="false"/>
+            <param name="OutputTuplePerLine" value="false"/>
+            <param name="PollFrequency" value="10000"/>
+            <param name="ProcessAsFileDownload" value="false"/>
+            <param name="ProxyHost" value=""/>
+            <param name="ProxyPass" value=""/>
+            <param name="ProxyPort" value=""/>
+            <param name="ProxyUser" value=""/>
+            <param name="ReadTimeout" value="0"/>
+            <param name="Url" value=""/>
+            <param name="UseDefaultCharset" value="true"/>
+            <param name="UseProxy" value="false"/>
+            <param name="defaultPostData" value=""/>
+            <param name="defaultURLEncode" value="true"/>
+            <param name="defaultURLEncodePostData" value="true"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="unescapeHtmlResults" value="false"/>
+        </box>
+        <box name="Map6" type="map">
+            <input port="1" stream="out:Split2_1"/>
+            <output port="1" stream="out:Map6_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="SB_ResponseId">SB_ResponseID</include>
+                </expressions>
+            </target-list>
+        </box>
+        <module-reference name="LogPoint02">
+            <input name="InputStream" port="1" stream="out:Map6_1"/>
+            <param name="file" value="com.iisigroup.product.iip.apicreator.api_logpoint"/>
+            <parameter-bindings>
+                <binding name="Name" value="${Prefix}_${Name}"/>
+                <binding name="LogPoint" value="SendRequest"/>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
+        </module-reference>
+        <box name="Split3" type="split">
+            <input port="1" stream="out:InputAdapter_2"/>
+            <output port="1" stream="out:Split3_1"/>
+            <output port="2" stream="out:Split3_2"/>
+            <param name="output-count" value="2"/>
+        </box>
+        <box name="Map4" type="map">
+            <input port="1" stream="out:Split3_2"/>
+            <output port="1" stream="out:Map4_1"/>
+            <target-list>
+                <item name="input" selection="none">
+                    <include field="Data"/>
+                </item>
+            </target-list>
+        </box>
+        <box name="Map6Copy" type="map">
+            <input port="1" stream="out:Split3_1"/>
+            <output port="1" stream="out:Map6Copy_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="SB_ResponseId">SB_ResponseID</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Java2" type="java">
+            <input port="1" stream="out:Map4_1"/>
+            <output port="1" stream="out:Java2_1"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.operator.jsontuple.JSON2Tuple"/>
+            <param name="enableLooseParsing" value="false"/>
+            <param name="enablePassThroughFields" value="false"/>
+            <param name="enableStatusPort" value="false"/>
+            <param name="jsonFieldName" value="Data"/>
+            <param name="logLevel" value="INFO"/>
+            <param name="outputSchema" value="ResponseSchema"/>
+            <param name="passThroughFieldsFieldName" value="PassThroughFields"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+        <module-reference name="LogPoint03">
+            <input name="InputStream" port="1" stream="out:Map6Copy_1"/>
+            <param name="file" value="com.iisigroup.product.iip.apicreator.api_logpoint"/>
+            <parameter-bindings>
+                <binding name="Name" value="${Prefix}_${Name}"/>
+                <binding name="LogPoint" value="RcvResponse"/>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
+        </module-reference>
+        <box name="Map5" type="map">
+            <input port="1" stream="out:Java2_1"/>
+            <output port="1" stream="out:Map5_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="SB_ResponseId">SB_ResponseID</include>
+                </expressions>
+            </target-list>
+        </box>
+        <box name="Split3Copy" type="split">
+            <input port="1" stream="out:Map5_1"/>
+            <output port="1" stream="out:Split3Copy_1"/>
+            <output port="2" stream="out:Split3Copy_2"/>
+            <param name="output-count" value="2"/>
+        </box>
+        <module-reference name="LogPoint04">
+            <input name="InputStream" port="1" stream="out:Split3Copy_1"/>
+            <param name="file" value="com.iisigroup.product.iip.apicreator.api_logpoint"/>
+            <parameter-bindings>
+                <binding name="Name" value="${Prefix}_${Name}"/>
+                <binding name="LogPoint" value="SendResponse"/>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
+        </module-reference>
+        <box name="Response" type="java">
+            <input port="1" stream="out:Split3Copy_2"/>
+            <output port="1" stream="OutputStream"/>
+            <param name="start:state" value="true"/>
+            <param name="javaclass" value="com.streambase.sb.adapter.webserver.streams.WebInputResponse"/>
+            <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
+        </box>
+        <output-stream name="OutputStream" schema="FinalSchema"/>
+    </add>
+</modify>

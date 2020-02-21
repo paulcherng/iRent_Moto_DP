@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?><application-layout>
-    <component name="iRent_Car">
-        <param name="gui:x" value="-85"/>
-        <param name="gui:y" value="-208"/>
+    <component name="EventInfo_DP">
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="-442"/>
+    </component>
+    <component name="Module">
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="-60"/>
+    </component>
+    <component name="Module2">
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="59"/>
+    </component>
+    <component name="Module3">
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="297"/>
+    </component>
+    <component name="Module4">
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="178"/>
+    </component>
+    <component name="Module5">
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="-179"/>
+    </component>
+    <component name="ReadCardInfo_DP">
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="-323"/>
+    </component>
+    <component name="ResponseInfo_DP">
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="-799"/>
+    </component>
+    <component name="Upd_Sta_DP">
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="-680"/>
     </component>
     <component name="iRent_Motocycle">
-        <param name="gui:x" value="-85"/>
-        <param name="gui:y" value="30"/>
+        <param name="gui:x" value="97"/>
+        <param name="gui:y" value="-561"/>
     </component>
-    <component name="iRent_Station">
-        <param name="gui:x" value="-85"/>
-        <param name="gui:y" value="-89"/>
+    <component name="APIcaller">
+        <param name="gui:x" value="49"/>
+        <param name="gui:y" value="-225"/>
+        <param name="gui:width" value="156"/>
+        <param name="gui:height" value="605"/>
     </component>
+    <component name="InputData">
+        <param name="gui:x" value="42"/>
+        <param name="gui:y" value="-845"/>
+        <param name="gui:width" value="170"/>
+        <param name="gui:height" value="605"/>
+    </component>
+    <gui.group name="APIcaller" visual-state="open">
+        <member name="Module3"/>
+        <member name="Module4"/>
+        <member name="Module2"/>
+        <member name="Module"/>
+        <member name="Module5"/>
+        <param name="gui:x" value="49"/>
+        <param name="gui:y" value="-225"/>
+        <param name="gui:width" value="156"/>
+        <param name="gui:height" value="605"/>
+    </gui.group>
+    <gui.group name="InputData" visual-state="open">
+        <member name="ReadCardInfo_DP"/>
+        <member name="EventInfo_DP"/>
+        <member name="iRent_Motocycle"/>
+        <member name="Upd_Sta_DP"/>
+        <member name="ResponseInfo_DP"/>
+        <param name="gui:x" value="42"/>
+        <param name="gui:y" value="-845"/>
+        <param name="gui:width" value="170"/>
+        <param name="gui:height" value="605"/>
+    </gui.group>
 </application-layout>

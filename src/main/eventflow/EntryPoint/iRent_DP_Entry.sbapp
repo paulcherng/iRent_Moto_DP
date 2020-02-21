@@ -13,15 +13,15 @@
             <parameter default="192.168.61.14:9092" name="Broker"/>
         </parameter-definitions>
         <dynamic-variables/>
-        <module-reference name="iRent_Car">
-            <output name="FlagConfig" port="1" stream="out:iRent_Car_1"/>
-            <output name="PredictModelSwitch" port="2" stream="out:iRent_Car_2"/>
-            <output name="toLiveView" port="3" stream="out:iRent_Car_3"/>
+        <module-reference name="EventInfo_DP">
+            <output name="FlagConfig" port="1" stream="out:EventInfo_DP_1"/>
+            <output name="PredictModelSwitch" port="2" stream="out:EventInfo_DP_2"/>
+            <output name="toLiveView" port="3" stream="out:EventInfo_DP_3"/>
             <param name="parallel" value="true"/>
-            <param name="file" value="com.digisight.iisi.irent_car_dp.DataProcess_template"/>
+            <param name="file" value="EventInfo_DP.DataProcess_template"/>
             <parameter-bindings>
+                <binding name="SrcID" value="EventInfo"/>
                 <binding name="Broker" value="${Broker}"/>
-                <binding name="SrcID" value="iRent_Car"/>
             </parameter-bindings>
         </module-reference>
         <module-reference disabled="true" name="iRent_Motocycle">
@@ -34,10 +34,62 @@
                 <binding name="SrcID" value="iRent_Motocycle"/>
             </parameter-bindings>
         </module-reference>
-        <module-reference name="iRent_Station">
-            <output name="FlagConfig" port="1" stream="out:iRent_Station_1"/>
-            <output name="PredictModelSwitch" port="2" stream="out:iRent_Station_2"/>
-            <output name="toLiveView" port="3" stream="out:iRent_Station_3"/>
+        <module-reference name="Module">
+            <output name="OutputStream" port="1" stream="out:Module_1"/>
+            <output name="ReponseId" port="2" stream="out:Module_2"/>
+            <output name="RequestTypeCheck" port="3" stream="out:Module_3"/>
+            <param name="file" value="API_caller.SearchCar"/>
+        </module-reference>
+        <module-reference name="Module2">
+            <output name="OutputStream" port="1" stream="out:Module2_1"/>
+            <output name="ReponseId" port="2" stream="out:Module2_2"/>
+            <output name="RequestTypeCheck" port="3" stream="out:Module2_3"/>
+            <param name="file" value="API_caller.SendCardNo"/>
+        </module-reference>
+        <module-reference name="Module3">
+            <output name="OutputStream" port="1" stream="out:Module3_1"/>
+            <output name="ReponseId" port="2" stream="out:Module3_2"/>
+            <output name="RequestTypeCheck" port="3" stream="out:Module3_3"/>
+            <param name="file" value="API_caller.SendLock"/>
+        </module-reference>
+        <module-reference name="Module4">
+            <output name="OutputStream" port="1" stream="out:Module4_1"/>
+            <output name="ReponseId" port="2" stream="out:Module4_2"/>
+            <output name="RequestTypeCheck" port="3" stream="out:Module4_3"/>
+            <param name="file" value="API_caller.SetOrderStatus"/>
+        </module-reference>
+        <module-reference name="Module5">
+            <output name="OutputStream" port="1" stream="out:Module5_1"/>
+            <output name="ReponseId" port="2" stream="out:Module5_2"/>
+            <output name="RequestTypeCheck" port="3" stream="out:Module5_3"/>
+            <param name="file" value="API_caller.SetStatus"/>
+        </module-reference>
+        <module-reference name="ReadCardInfo_DP">
+            <output name="FlagConfig" port="1" stream="out:ReadCardInfo_DP_1"/>
+            <output name="PredictModelSwitch" port="2" stream="out:ReadCardInfo_DP_2"/>
+            <output name="toLiveView" port="3" stream="out:ReadCardInfo_DP_3"/>
+            <param name="parallel" value="true"/>
+            <param name="file" value="ReadCardInfo_DP.DataProcess_template"/>
+            <parameter-bindings>
+                <binding name="SrcID" value="ReadCardInfo"/>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
+        </module-reference>
+        <module-reference name="ResponseInfo_DP">
+            <output name="FlagConfig" port="1" stream="out:ResponseInfo_DP_1"/>
+            <output name="PredictModelSwitch" port="2" stream="out:ResponseInfo_DP_2"/>
+            <output name="toLiveView" port="3" stream="out:ResponseInfo_DP_3"/>
+            <param name="parallel" value="true"/>
+            <param name="file" value="com.digisight.iisi.irent_car_dp.DataProcess_template"/>
+            <parameter-bindings>
+                <binding name="Broker" value="${Broker}"/>
+                <binding name="SrcID" value="iRent_Car"/>
+            </parameter-bindings>
+        </module-reference>
+        <module-reference name="Upd_Sta_DP">
+            <output name="FlagConfig" port="1" stream="out:Upd_Sta_DP_1"/>
+            <output name="PredictModelSwitch" port="2" stream="out:Upd_Sta_DP_2"/>
+            <output name="toLiveView" port="3" stream="out:Upd_Sta_DP_3"/>
             <param name="parallel" value="true"/>
             <param name="file" value="com.digisight.iisi.irent_station_dp.DataProcess_template"/>
             <parameter-bindings>

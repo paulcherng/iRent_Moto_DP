@@ -38,20 +38,6 @@
             <param name="javaclass" value="com.streambase.sb.adapter.once.Once"/>
             <param name="OutputField" value="time"/>
         </box>
-        <module-reference name="Module4">
-            <output name="OutputStream" port="1" stream="out:Module4_1"/>
-            <param name="file" value="iRent_Car_API.UpdateInfo"/>
-        </module-reference>
-        <module-reference name="Module">
-            <param name="parallel" value="true"/>
-            <param name="file" value="iRent_Car_API.GetCarByCid"/>
-            <input-dataref name="QueryTable" table="QueryTable"/>
-        </module-reference>
-        <module-reference name="Module2">
-            <param name="parallel" value="true"/>
-            <param name="file" value="iRent_Car_API.GetCarByRange"/>
-            <input-dataref name="QueryTable" table="QueryTable"/>
-        </module-reference>
         <module-reference name="Module3">
             <output name="OutputStream" port="1" stream="out:Module3_1"/>
             <param name="parallel" value="true"/>
@@ -61,34 +47,6 @@
         <box name="Query" type="query">
             <input port="1" stream="ValidatedDataIn"/>
             <output port="1" stream="out:Query_1"/>
-            <dataref id="querytable" name="QueryTable"/>
-            <param name="operation" value="write"/>
-            <param name="where" value="primary-key"/>
-            <param name="key-field.0" value="CID"/>
-            <param name="key-value.0" value="CID"/>
-            <param name="write-type" value="insert"/>
-            <param name="if-write-fails" value="force"/>
-            <param name="no-match-mode" value="output-no-match-null"/>
-            <param name="order-by-direction" value="none"/>
-            <target-list>
-                <item name="input" selection="all"/>
-                <item name="old" selection="none"/>
-                <item name="new" selection="none"/>
-                <item name="current" selection="none"/>
-            </target-list>
-            <target-list name="insert">
-                <item name="input" selection="all"/>
-            </target-list>
-            <target-list goal-schema="validatedData" name="update">
-                <item name="input" selection="all"/>
-            </target-list>
-            <target-list goal-schema="validatedData" name="no-match">
-                <item name="input" selection="all"/>
-            </target-list>
-        </box>
-        <box name="Query2" type="query">
-            <input port="1" stream="out:Module4_1"/>
-            <output port="1" stream="out:Query2_1"/>
             <dataref id="querytable" name="QueryTable"/>
             <param name="operation" value="write"/>
             <param name="where" value="primary-key"/>

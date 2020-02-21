@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.4.3_a45545bc0fa864b6dd457e084eb653f6e2004e05">
+    <add>
+        <annotations>
+            <annotation name="hygienic"/>
+        </annotations>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="EventInfo_DP.Capability_example"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <implements module-reference="SharedInterface.EventInfo"/>
+        <import from="SharedInterface.EventInfo"/>
+        <parameter-definitions>
+            <parameter default="SrcID" name="SrcID"/>
+            <parameter default="SnsrType" name="SnsrType"/>
+        </parameter-definitions>
+        <dynamic-variables/>
+        <stream name="CapabilityInput" schema="CVSOut"/>
+        <stream name="configIn">
+            <schema>
+                <field name="unhandledConfig" type="capture" type-name="unhandledConfigType"/>
+            </schema>
+        </stream>
+        <box name="Map" type="map">
+            <input port="1" stream="CapabilityInput"/>
+            <output port="1" stream="ProcessedDataOut"/>
+            <target-list>
+                <item name="input" selection="all"/>
+            </target-list>
+        </box>
+        <output-stream name="ProcessedDataOut" schema="CapabilityOut"/>
+    </add>
+</modify>

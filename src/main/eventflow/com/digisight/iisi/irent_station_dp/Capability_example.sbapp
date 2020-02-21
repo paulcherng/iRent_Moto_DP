@@ -42,16 +42,6 @@
             <param name="javaclass" value="com.streambase.sb.adapter.once.Once"/>
             <param name="OutputField" value="time"/>
         </box>
-        <module-reference name="Module">
-            <param name="parallel" value="true"/>
-            <param name="file" value="iRent_Station_API.GetStationById"/>
-            <input-dataref name="QueryTable" table="QueryTable"/>
-        </module-reference>
-        <module-reference name="Module2">
-            <param name="parallel" value="true"/>
-            <param name="file" value="iRent_Station_API.GetStationByRange"/>
-            <input-dataref name="QueryTable" table="QueryTable"/>
-        </module-reference>
         <module-reference name="Module3">
             <output name="OutputStream" port="1" stream="out:Module3_1"/>
             <param name="parallel" value="true"/>
@@ -74,6 +64,7 @@
                 <item name="input" selection="none"/>
                 <item name="old" selection="none"/>
                 <item name="new" selection="all"/>
+                <item name="current" selection="none"/>
             </target-list>
             <target-list goal-schema="validatedData" name="insert">
                 <item name="input" selection="all"/>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="InputStream">
+        <param name="gui:x" value="-1309"/>
+        <param name="gui:y" value="-176"/>
+    </component>
+    <component name="LogPoint01">
+        <param name="gui:x" value="-926"/>
+        <param name="gui:y" value="-275"/>
+        <param name="gui:bends:1" value="-999,-156;-977,-247"/>
+    </component>
+    <component name="LogPoint02">
+        <param name="gui:x" value="23"/>
+        <param name="gui:y" value="-205"/>
+    </component>
+    <component name="LogPoint03">
+        <param name="gui:x" value="385"/>
+        <param name="gui:y" value="-147"/>
+    </component>
+    <component name="LogPoint04">
+        <param name="gui:x" value="965"/>
+        <param name="gui:y" value="-172"/>
+        <param name="gui:bends:1" value="888,-28;916,-143"/>
+    </component>
+    <component name="InputAdapter">
+        <param name="gui:x" value="-12"/>
+        <param name="gui:y" value="-85"/>
+        <param name="gui:bends:1" value="-104,-38;-100,-55"/>
+    </component>
+    <component name="Java">
+        <param name="gui:x" value="-457"/>
+        <param name="gui:y" value="-78"/>
+    </component>
+    <component name="Java2">
+        <param name="gui:x" value="562"/>
+        <param name="gui:y" value="-48"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="-925"/>
+        <param name="gui:y" value="-78"/>
+        <param name="gui:bends:1" value="-986,-136;-964,-48"/>
+    </component>
+    <component name="Map2">
+        <param name="gui:x" value="-571"/>
+        <param name="gui:y" value="-78"/>
+        <param name="gui:bends:1" value="-724,-46;-660,-304;-650,-304;-593,-48"/>
+    </component>
+    <component name="Map3">
+        <param name="gui:x" value="-308"/>
+        <param name="gui:y" value="-78"/>
+    </component>
+    <component name="Map4">
+        <param name="gui:x" value="347"/>
+        <param name="gui:y" value="-48"/>
+    </component>
+    <component name="Map5">
+        <param name="gui:x" value="711"/>
+        <param name="gui:y" value="-48"/>
+    </component>
+    <component name="Map6">
+        <param name="gui:x" value="-108"/>
+        <param name="gui:y" value="-205"/>
+        <param name="gui:bends:1" value="-123,-58;-109,-176"/>
+    </component>
+    <component name="Map6Copy">
+        <param name="gui:x" value="254"/>
+        <param name="gui:y" value="-147"/>
+        <param name="gui:bends:1" value="233,-38;249,-118"/>
+    </component>
+    <component name="ModifyPart">
+        <param name="gui:x" value="-794"/>
+        <param name="gui:y" value="-78"/>
+        <param name="gui:bends:1" value="-815,-48;-815,-46"/>
+    </component>
+    <component name="Request">
+        <param name="gui:x" value="-1193"/>
+        <param name="gui:y" value="-177"/>
+        <param name="gui:height" value="61"/>
+        <param name="gui:bends:1" value="-1227,-146;-1227,-147"/>
+    </component>
+    <component name="Response">
+        <param name="gui:x" value="966"/>
+        <param name="gui:y" value="-52"/>
+        <param name="gui:height" value="61"/>
+        <param name="gui:bends:1" value="914,-8;916,-22"/>
+    </component>
+    <component name="Split">
+        <param name="gui:x" value="-1086"/>
+        <param name="gui:y" value="-176"/>
+        <param name="gui:bends:1" value="-1122,-147;-1122,-146"/>
+    </component>
+    <component name="Split2">
+        <param name="gui:x" value="-228"/>
+        <param name="gui:y" value="-78"/>
+    </component>
+    <component name="Split3">
+        <param name="gui:x" value="145"/>
+        <param name="gui:y" value="-58"/>
+        <param name="gui:bends:1" value="94,-45;98,-28"/>
+    </component>
+    <component name="Split3Copy">
+        <param name="gui:x" value="789"/>
+        <param name="gui:y" value="-48"/>
+    </component>
+    <component name="OutputStream">
+        <param name="gui:x" value="1095"/>
+        <param name="gui:y" value="-52"/>
+    </component>
+    <component name="ReponseId">
+        <param name="gui:x" value="-925"/>
+        <param name="gui:y" value="-176"/>
+    </component>
+    <component name="RequestTypeCheck">
+        <param name="gui:x" value="-679"/>
+        <param name="gui:y" value="-78"/>
+    </component>
+    <component name="Group">
+        <param name="gui:x" value="-109"/>
+        <param name="gui:y" value="-251"/>
+        <param name="gui:width" value="254"/>
+        <param name="gui:height" value="129"/>
+    </component>
+    <component name="Group2">
+        <param name="gui:x" value="245"/>
+        <param name="gui:y" value="-193"/>
+        <param name="gui:width" value="262"/>
+        <param name="gui:height" value="129"/>
+    </component>
+    <component name="Group3">
+        <param name="gui:x" value="-988"/>
+        <param name="gui:y" value="-321"/>
+        <param name="gui:width" value="184"/>
+        <param name="gui:height" value="129"/>
+    </component>
+    <component name="Group4">
+        <param name="gui:x" value="903"/>
+        <param name="gui:y" value="-218"/>
+        <param name="gui:width" value="184"/>
+        <param name="gui:height" value="129"/>
+    </component>
+    <component name="ModifyNeeded">
+        <param name="gui:x" value="-804"/>
+        <param name="gui:y" value="-103"/>
+        <param name="gui:width" value="222"/>
+        <param name="gui:height" value="108"/>
+    </component>
+    <gui.group name="Group" visual-state="open">
+        <member name="LogPoint02"/>
+        <member name="Map6"/>
+        <param name="gui:x" value="-109"/>
+        <param name="gui:y" value="-251"/>
+        <param name="gui:width" value="254"/>
+        <param name="gui:height" value="129"/>
+    </gui.group>
+    <gui.group name="Group2" visual-state="open">
+        <member name="Map6Copy"/>
+        <member name="LogPoint03"/>
+        <param name="gui:x" value="245"/>
+        <param name="gui:y" value="-193"/>
+        <param name="gui:width" value="262"/>
+        <param name="gui:height" value="129"/>
+    </gui.group>
+    <gui.group name="Group3" visual-state="open">
+        <member name="LogPoint01"/>
+        <param name="gui:x" value="-988"/>
+        <param name="gui:y" value="-321"/>
+        <param name="gui:width" value="184"/>
+        <param name="gui:height" value="129"/>
+    </gui.group>
+    <gui.group name="Group4" visual-state="open">
+        <member name="LogPoint04"/>
+        <param name="gui:x" value="903"/>
+        <param name="gui:y" value="-218"/>
+        <param name="gui:width" value="184"/>
+        <param name="gui:height" value="129"/>
+    </gui.group>
+    <gui.group name="ModifyNeeded" visual-state="open">
+        <member name="ModifyPart"/>
+        <member name="RequestTypeCheck"/>
+        <param name="gui:x" value="-804"/>
+        <param name="gui:y" value="-103"/>
+        <param name="gui:width" value="222"/>
+        <param name="gui:height" value="108"/>
+    </gui.group>
+</application-layout>

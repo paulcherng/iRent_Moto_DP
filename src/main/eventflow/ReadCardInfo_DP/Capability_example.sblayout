@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="CapabilityInput">
+        <param name="gui:x" value="-93"/>
+        <param name="gui:y" value="-24"/>
+    </component>
+    <component name="configIn">
+        <param name="gui:x" value="-93"/>
+        <param name="gui:y" value="74"/>
+    </component>
+    <component name="Map">
+        <param name="gui:x" value="9"/>
+        <param name="gui:y" value="-24"/>
+        <param name="gui:bends:1" value="-4,6;-4,5"/>
+    </component>
+    <component name="ProcessedDataOut">
+        <param name="gui:x" value="114"/>
+        <param name="gui:y" value="-24"/>
+        <param name="gui:bends:1" value="86,5;86,6"/>
+    </component>
+    <component name="ModifyPart">
+        <param name="gui:x" value="7"/>
+        <param name="gui:y" value="-49"/>
+        <param name="gui:width" value="62"/>
+        <param name="gui:height" value="108"/>
+    </component>
+    <gui.group name="ModifyPart" visual-state="open">
+        <member name="Map"/>
+        <param name="gui:x" value="7"/>
+        <param name="gui:y" value="-49"/>
+        <param name="gui:width" value="62"/>
+        <param name="gui:height" value="108"/>
+    </gui.group>
+</application-layout>

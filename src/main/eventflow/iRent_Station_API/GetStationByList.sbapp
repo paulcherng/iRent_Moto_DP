@@ -48,7 +48,7 @@
             <output port="1" stream="out:GetStationByList_Rq_1"/>
             <param name="start:state" value="true"/>
             <param name="javaclass" value="com.streambase.sb.adapter.webserver.streams.WebInput"/>
-            <param name="contextPath" value="/GetStationByList"/>
+            <param name="contextPath" value="/Digisight/GetStationByList"/>
             <param name="linkedWebOutputPath" value="GetStationByList_Rs"/>
             <param name="outputRequestMetadata" value="false"/>
             <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
@@ -108,6 +108,7 @@
                     <remove field="SrcID"/>
                     <remove field="UUID"/>
                 </item>
+                <item name="old" selection="none"/>
             </target-list>
             <target-list name="insert">
                 <item name="input" selection="all"/>
