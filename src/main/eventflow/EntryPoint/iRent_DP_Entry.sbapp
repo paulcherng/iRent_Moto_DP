@@ -10,7 +10,7 @@
         </type-metadata>
         <memory-model-settings/>
         <parameter-definitions>
-            <parameter default="192.168.61.14:9092" name="Broker"/>
+            <parameter default="${Broker}" name="Broker"/>
         </parameter-definitions>
         <dynamic-variables/>
         <module-reference name="EventInfo_DP">
@@ -39,30 +39,45 @@
             <output name="ReponseId" port="2" stream="out:Module_2"/>
             <output name="RequestTypeCheck" port="3" stream="out:Module_3"/>
             <param name="file" value="API_caller.SearchCar"/>
+            <parameter-bindings>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
         </module-reference>
         <module-reference name="Module2">
             <output name="OutputStream" port="1" stream="out:Module2_1"/>
             <output name="ReponseId" port="2" stream="out:Module2_2"/>
             <output name="RequestTypeCheck" port="3" stream="out:Module2_3"/>
             <param name="file" value="API_caller.SendCardNo"/>
+            <parameter-bindings>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
         </module-reference>
         <module-reference name="Module3">
             <output name="OutputStream" port="1" stream="out:Module3_1"/>
             <output name="ReponseId" port="2" stream="out:Module3_2"/>
             <output name="RequestTypeCheck" port="3" stream="out:Module3_3"/>
             <param name="file" value="API_caller.SendLock"/>
+            <parameter-bindings>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
         </module-reference>
         <module-reference name="Module4">
             <output name="OutputStream" port="1" stream="out:Module4_1"/>
             <output name="ReponseId" port="2" stream="out:Module4_2"/>
             <output name="RequestTypeCheck" port="3" stream="out:Module4_3"/>
             <param name="file" value="API_caller.SetOrderStatus"/>
+            <parameter-bindings>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
         </module-reference>
         <module-reference name="Module5">
             <output name="OutputStream" port="1" stream="out:Module5_1"/>
             <output name="ReponseId" port="2" stream="out:Module5_2"/>
             <output name="RequestTypeCheck" port="3" stream="out:Module5_3"/>
             <param name="file" value="API_caller.SetStatus"/>
+            <parameter-bindings>
+                <binding name="Broker" value="${Broker}"/>
+            </parameter-bindings>
         </module-reference>
         <module-reference name="ReadCardInfo_DP">
             <output name="FlagConfig" port="1" stream="out:ReadCardInfo_DP_1"/>
@@ -83,7 +98,7 @@
             <param name="file" value="com.digisight.iisi.irent_car_dp.DataProcess_template"/>
             <parameter-bindings>
                 <binding name="Broker" value="${Broker}"/>
-                <binding name="SrcID" value="iRent_Car"/>
+                <binding name="SrcID" value="ResponseInfo"/>
             </parameter-bindings>
         </module-reference>
         <module-reference name="Upd_Sta_DP">
@@ -94,7 +109,7 @@
             <param name="file" value="com.digisight.iisi.irent_station_dp.DataProcess_template"/>
             <parameter-bindings>
                 <binding name="Broker" value="${Broker}"/>
-                <binding name="SrcID" value="iRent_Station"/>
+                <binding name="SrcID" value="Upd_Sta"/>
             </parameter-bindings>
         </module-reference>
     </add>

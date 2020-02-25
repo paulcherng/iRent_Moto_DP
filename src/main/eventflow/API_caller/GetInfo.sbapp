@@ -93,7 +93,7 @@
             <param name="file" value="com.iisigroup.product.iip.apicreator.api_logpoint"/>
             <parameter-bindings>
                 <binding name="Name" value="${Prefix}_${Name}"/>
-                <binding name="LogPoint" value="RcvRequest"/>
+                <binding name="LogPoint" value="01RcvRequest"/>
                 <binding name="Broker" value="${Broker}"/>
             </parameter-bindings>
         </module-reference>
@@ -209,7 +209,7 @@
             <param name="file" value="com.iisigroup.product.iip.apicreator.api_logpoint"/>
             <parameter-bindings>
                 <binding name="Name" value="${Prefix}_${Name}"/>
-                <binding name="LogPoint" value="SendRequest"/>
+                <binding name="LogPoint" value="02SendRequest"/>
                 <binding name="Broker" value="${Broker}"/>
             </parameter-bindings>
         </module-reference>
@@ -228,15 +228,11 @@
                 </item>
             </target-list>
         </box>
-        <box name="Map6Copy" type="map">
-            <input port="1" stream="out:Split3_1"/>
-            <output port="1" stream="out:Map6Copy_1"/>
-            <target-list>
-                <item name="input" selection="all"/>
-                <expressions>
-                    <include field="SB_ResponseId">SB_ResponseID</include>
-                </expressions>
-            </target-list>
+        <box name="Union" type="union">
+            <input port="1" stream="out:InputAdapter_1"/>
+            <input port="2" stream="out:Split3_1"/>
+            <output port="1" stream="out:Union_1"/>
+            <param name="strict" value="false"/>
         </box>
         <box name="Java2" type="java">
             <input port="1" stream="out:Map4_1"/>
@@ -252,12 +248,22 @@
             <param name="passThroughFieldsFieldName" value="PassThroughFields"/>
             <param name="timestampFormat" value="yyyy-MM-dd HH:mm:ss.SSSZ"/>
         </box>
+        <box name="Map6Copy" type="map">
+            <input port="1" stream="out:Union_1"/>
+            <output port="1" stream="out:Map6Copy_1"/>
+            <target-list>
+                <item name="input" selection="all"/>
+                <expressions>
+                    <include field="SB_ResponseId">SB_ResponseID</include>
+                </expressions>
+            </target-list>
+        </box>
         <module-reference name="LogPoint03">
             <input name="InputStream" port="1" stream="out:Map6Copy_1"/>
             <param name="file" value="com.iisigroup.product.iip.apicreator.api_logpoint"/>
             <parameter-bindings>
                 <binding name="Name" value="${Prefix}_${Name}"/>
-                <binding name="LogPoint" value="RcvResponse"/>
+                <binding name="LogPoint" value="03RcvResponse"/>
                 <binding name="Broker" value="${Broker}"/>
             </parameter-bindings>
         </module-reference>
@@ -282,7 +288,7 @@
             <param name="file" value="com.iisigroup.product.iip.apicreator.api_logpoint"/>
             <parameter-bindings>
                 <binding name="Name" value="${Prefix}_${Name}"/>
-                <binding name="LogPoint" value="SendResponse"/>
+                <binding name="LogPoint" value="04SendResponse"/>
                 <binding name="Broker" value="${Broker}"/>
             </parameter-bindings>
         </module-reference>

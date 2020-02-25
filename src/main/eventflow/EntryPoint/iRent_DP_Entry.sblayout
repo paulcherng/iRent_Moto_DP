@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?><application-layout>
     <component name="EventInfo_DP">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="-442"/>
+        <param name="gui:x" value="-373"/>
+        <param name="gui:y" value="-133"/>
     </component>
     <component name="Module">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="-60"/>
+        <param name="gui:x" value="5"/>
+        <param name="gui:y" value="-371"/>
     </component>
     <component name="Module2">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="59"/>
+        <param name="gui:x" value="5"/>
+        <param name="gui:y" value="-252"/>
     </component>
     <component name="Module3">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="297"/>
+        <param name="gui:x" value="5"/>
+        <param name="gui:y" value="-14"/>
     </component>
     <component name="Module4">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="178"/>
+        <param name="gui:x" value="5"/>
+        <param name="gui:y" value="-133"/>
     </component>
     <component name="Module5">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="-179"/>
+        <param name="gui:x" value="5"/>
+        <param name="gui:y" value="-490"/>
     </component>
     <component name="ReadCardInfo_DP">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="-323"/>
+        <param name="gui:x" value="-373"/>
+        <param name="gui:y" value="-14"/>
     </component>
     <component name="ResponseInfo_DP">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="-799"/>
+        <param name="gui:x" value="-373"/>
+        <param name="gui:y" value="-490"/>
     </component>
     <component name="Upd_Sta_DP">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="-680"/>
+        <param name="gui:x" value="-373"/>
+        <param name="gui:y" value="-371"/>
     </component>
     <component name="iRent_Motocycle">
-        <param name="gui:x" value="97"/>
-        <param name="gui:y" value="-561"/>
+        <param name="gui:x" value="-373"/>
+        <param name="gui:y" value="-252"/>
     </component>
     <component name="APIcaller">
-        <param name="gui:x" value="49"/>
-        <param name="gui:y" value="-225"/>
+        <param name="gui:x" value="-43"/>
+        <param name="gui:y" value="-535"/>
         <param name="gui:width" value="156"/>
         <param name="gui:height" value="605"/>
     </component>
     <component name="InputData">
-        <param name="gui:x" value="42"/>
-        <param name="gui:y" value="-845"/>
+        <param name="gui:x" value="-428"/>
+        <param name="gui:y" value="-535"/>
         <param name="gui:width" value="170"/>
         <param name="gui:height" value="605"/>
     </component>
@@ -57,8 +57,8 @@
         <member name="Module2"/>
         <member name="Module"/>
         <member name="Module5"/>
-        <param name="gui:x" value="49"/>
-        <param name="gui:y" value="-225"/>
+        <param name="gui:x" value="-43"/>
+        <param name="gui:y" value="-535"/>
         <param name="gui:width" value="156"/>
         <param name="gui:height" value="605"/>
     </gui.group>
@@ -68,8 +68,8 @@
         <member name="iRent_Motocycle"/>
         <member name="Upd_Sta_DP"/>
         <member name="ResponseInfo_DP"/>
-        <param name="gui:x" value="42"/>
-        <param name="gui:y" value="-845"/>
+        <param name="gui:x" value="-428"/>
+        <param name="gui:y" value="-535"/>
         <param name="gui:width" value="170"/>
         <param name="gui:height" value="605"/>
     </gui.group>
